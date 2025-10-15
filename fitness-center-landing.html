@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фитнес-центр "Энергия" - Твой путь к идеальной форме</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 50%, #c44569 100%);
+            color: #fff;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '💪';
+            position: absolute;
+            font-size: 20em;
+            opacity: 0.1;
+            top: -50px;
+            right: -50px;
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 50px;
+            background: #fff;
+            color: #ff6b6b;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #1a1a1a;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .features {
+            background: #f5f5f5;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 3px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #ff6b6b;
+        }
+
+        .feature-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 1.05em;
+        }
+
+        .programs {
+            background: #fff;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .program-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+
+        .program-card:hover::before {
+            top: -100%;
+            right: -100%;
+        }
+
+        .program-card:hover {
+            transform: scale(1.05);
+        }
+
+        .program-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .program-card ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .program-card li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .program-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .program-price {
+            font-size: 2em;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .program-period {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .trainers {
+            background: #f5f5f5;
+        }
+
+        .trainers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .trainer-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .trainer-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .trainer-photo {
+            height: 300px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #c44569 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5em;
+            color: #fff;
+        }
+
+        .trainer-info {
+            padding: 25px;
+        }
+
+        .trainer-info h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #ff6b6b;
+        }
+
+        .trainer-specialty {
+            color: #666;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .trainer-info p {
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .schedule {
+            background: #fff;
+        }
+
+        .schedule-table {
+            background: #f5f5f5;
+            border-radius: 15px;
+            padding: 30px;
+            overflow-x: auto;
+        }
+
+        .schedule-row {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 20px;
+            padding: 20px;
+            background: #fff;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            align-items: center;
+        }
+
+        .schedule-time {
+            font-weight: bold;
+            color: #ff6b6b;
+            font-size: 1.2em;
+        }
+
+        .schedule-classes {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .schedule-class {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.95em;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #ff6b6b 0%, #c44569 100%);
+            color: #fff;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: #fff;
+            color: #ff6b6b;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-item {
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .contact-item strong {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .footer {
+            background: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .schedule-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>💪 Фитнес-центр "Энергия"</h1>
+            <p>Построй тело своей мечты! Современное оборудование, опытные тренеры</p>
+            <a href="#contact" class="cta-btn">Получить первую тренировку бесплатно</a>
+        </div>
+    </section>
+
+    <section class="section features">
+        <h2 class="section-title">Почему выбирают нас</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🏋️</span>
+                <h3>Современные тренажёры</h3>
+                <p>Оборудование ведущих мировых брендов</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">👨‍🏫</span>
+                <h3>Опытные тренеры</h3>
+                <p>Сертифицированные специалисты с опытом 5+ лет</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🕐</span>
+                <h3>Удобный график</h3>
+                <p>Работаем с 6:00 до 23:00 без выходных</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🧘</span>
+                <h3>Групповые занятия</h3>
+                <p>Йога, пилатес, зумба, функциональный тренинг</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section programs">
+        <h2 class="section-title">Абонементы</h2>
+        <div class="programs-grid">
+            <div class="program-card">
+                <h3>Базовый</h3>
+                <ul>
+                    <li>Доступ в тренажёрный зал</li>
+                    <li>Кардио-зона</li>
+                    <li>Раздевалка и душ</li>
+                    <li>Wi-Fi</li>
+                </ul>
+                <div class="program-price">
+                    2 500 ₽
+                    <div class="program-period">в месяц</div>
+                </div>
+            </div>
+            <div class="program-card">
+                <h3>Оптимальный</h3>
+                <ul>
+                    <li>Всё из Базового</li>
+                    <li>Групповые занятия (10 в месяц)</li>
+                    <li>Составление программы тренировок</li>
+                    <li>Скидка на персональные тренировки</li>
+                </ul>
+                <div class="program-price">
+                    4 000 ₽
+                    <div class="program-period">в месяц</div>
+                </div>
+            </div>
+            <div class="program-card">
+                <h3>Премиум</h3>
+                <ul>
+                    <li>Всё из Оптимального</li>
+                    <li>Безлимит на групповые занятия</li>
+                    <li>4 персональные тренировки</li>
+                    <li>Консультация нутрициолога</li>
+                    <li>Личный шкафчик</li>
+                </ul>
+                <div class="program-price">
+                    7 500 ₽
+                    <div class="program-period">в месяц</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section trainers">
+        <h2 class="section-title">Наши тренеры</h2>
+        <div class="trainers-grid">
+            <div class="trainer-card">
+                <div class="trainer-photo">👨‍💼</div>
+                <div class="trainer-info">
+                    <h3>Дмитрий Иванов</h3>
+                    <p class="trainer-specialty">Силовой тренинг, бодибилдинг</p>
+                    <p>Мастер спорта по пауэрлифтингу. Помогу набрать мышечную массу и увеличить силовые показатели.</p>
+                </div>
+            </div>
+            <div class="trainer-card">
+                <div class="trainer-photo">👩‍💼</div>
+                <div class="trainer-info">
+                    <h3>Елена Смирнова</h3>
+                    <p class="trainer-specialty">Фитнес, похудение, стретчинг</p>
+                    <p>Сертифицированный тренер по фитнесу и йоге. Специализируюсь на жиросжигании и растяжке.</p>
+                </div>
+            </div>
+            <div class="trainer-card">
+                <div class="trainer-photo">👨‍💼</div>
+                <div class="trainer-info">
+                    <h3>Александр Петров</h3>
+                    <p class="trainer-specialty">Функциональный тренинг, кроссфит</p>
+                    <p>КМС по лёгкой атлетике. Разработаю программу для улучшения выносливости и координации.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section schedule">
+        <h2 class="section-title">Расписание групповых занятий</h2>
+        <div class="schedule-table">
+            <div class="schedule-row">
+                <div class="schedule-time">07:00</div>
+                <div class="schedule-classes">
+                    <span class="schedule-class">Утренняя йога</span>
+                    <span class="schedule-class">Функциональный тренинг</span>
+                </div>
+            </div>
+            <div class="schedule-row">
+                <div class="schedule-time">10:00</div>
+                <div class="schedule-classes">
+                    <span class="schedule-class">Пилатес</span>
+                    <span class="schedule-class">Силовая аэробика</span>
+                </div>
+            </div>
+            <div class="schedule-row">
+                <div class="schedule-time">18:00</div>
+                <div class="schedule-classes">
+                    <span class="schedule-class">Зумба</span>
+                    <span class="schedule-class">Кроссфит</span>
+                    <span class="schedule-class">Стретчинг</span>
+                </div>
+            </div>
+            <div class="schedule-row">
+                <div class="schedule-time">20:00</div>
+                <div class="schedule-classes">
+                    <span class="schedule-class">Вечерняя йога</span>
+                    <span class="schedule-class">Функциональный тренинг</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <h2 class="section-title">Записаться на пробную тренировку</h2>
+        <div class="contact-content">
+            <form class="contact-form" onsubmit="return handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="program">Интересующий абонемент</label>
+                    <select id="program" required>
+                        <option value="">Выберите</option>
+                        <option value="basic">Базовый</option>
+                        <option value="optimal">Оптимальный</option>
+                        <option value="premium">Премиум</option>
+                        <option value="personal">Персональные тренировки</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Записаться бесплатно</button>
+            </form>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>📍 Адрес:</strong>
+                    г. Москва, ул. Спортивная, д. 25
+                </div>
+                <div class="contact-item">
+                    <strong>📞 Телефон:</strong>
+                    +7 (999) 888-77-66
+                </div>
+                <div class="contact-item">
+                    <strong>📧 Email:</strong>
+                    info@energia-fitness.ru
+                </div>
+                <div class="contact-item">
+                    <strong>🕐 Режим работы:</strong>
+                    Ежедневно с 6:00 до 23:00
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Фитнес-центр "Энергия". Будь в форме!</p>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Отлично! Мы записали вас на бесплатную тренировку. Наш менеджер свяжется с вами в ближайшее время!');
+            event.target.reset();
+            return false;
+        }
+
+        document.querySelector('.cta-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#contact').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
+    </script>
+</body>
+</html>
